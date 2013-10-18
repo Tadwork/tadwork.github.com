@@ -1,0 +1,49 @@
+application: brhochlaw
+version: 3
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+
+- url: /
+  static_files: index.html
+  upload: index.html
+
+- url: /index.html
+  static_files: index.html
+  upload: index.html
+  
+- url: /sitemap.xml
+  static_files: sitemap.xml
+  upload: sitemap.xml
+ 
+- url: /404
+  static_dir: 404
+ 
+- url: /500
+  static_dir: 500
+  
+- url: /icons
+  static_dir: icons
+
+- url: /images
+  static_dir: images
+  
+- url: /pages
+  static_dir: pages
+
+- url: /posts
+  static_dir: posts
+  
+- url: /contact
+  static_dir: contact
+  
+- url: /scripts
+  static_dir: scripts
+  
+- url: /styles
+  static_dir: styles
+  
+- url: /vendor
+  static_dir: vendor

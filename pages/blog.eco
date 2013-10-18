@@ -1,0 +1,60 @@
+<%
+months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'NOV', 'DEC']
+%>
+<div id="content-wrap">
+  <div id="content" class="clearfix">
+	<div id="main">
+	<%
+	for item in @getArticles()
+
+    article '.post', ->
+
+        div '.primary', ->
+
+            h2 -> a href: item.url, -> item.title
+
+            if item.tags?.length
+                p '.post-info', ->
+                    span -> 'tags: <a href="/">'+item.tags.join('</a>, <a href="/">')+'</a>'
+
+            if item.image?
+                div '.image-section', ->
+                    img src: item.image.standard.url, width: item.image.standard.width, height: item.image.standard.height, ->
+
+            text ''+item.contentRenderedWithoutLayouts
+
+        aside ->
+
+            p '.dateinfo', ->
+                text months[item.date.getMonth()]
+                span -> ''+item.date.getDate()
+	%>
+	  <article class="post">
+		<div class="primary"></div>
+		<aside>
+		  <p class="dateinfo">MAY 
+		  <span>2</span></p>
+		</aside>
+	  </article>
+	</div>
+	<div id="sidebar">
+	  <div class="about-me">
+		<h3>About me</h3>
+		<p>
+		<a href="/">
+		  <img class="align-left" src="/asset/coolblue/images/gravatar.jpg" width="42" height="42" />
+		</a> Lorem ipsum dolor sit, consectetuer adipiscing. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt,
+		orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo suspendisse bibendum.</p>
+	  </div>
+	  <div class="sidemenu">
+		<h3>Links</h3>
+		<ul>
+		  <li>
+			<a href="/link/node">Node</a>
+		  </li>
+		</ul>
+	  </div>
+	</div>
+  </div>
+</div>
+
